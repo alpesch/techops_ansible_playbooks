@@ -2,8 +2,8 @@ This repo contains Ansible playbooks. Currently, this focuses on deployment.
 
 # How to use Ansible
 
-* sudo pip install ansible
-* git clone git@github.com:alpesch/techops_ansible_playbooks.git
+* `sudo pip install ansible`
+* `git clone git@github.com:alpesch/techops_ansible_playbooks.git`
 * Modify hosts file according to your deployment (master node under master, 
   worker nodes under workers)
 * Run the deployment_helper.sh script. This places the correct packages in /tmp/packages,
