@@ -1,0 +1,68 @@
+---
+
+# NOTE - Ansible does not handle the license.json or config.yaml files.
+# install_system.sh will need to be run manually for this reason.
+
+- hosts: master
+  become: true # Run on remote hosts with sudo 
+  tasks:
+    - name: Create support user
+      user:
+        name: support
+        state: present
+        group: support
+        groups: "sudo"
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+    - name: Copy generated key from master
+      run_once: true
+      fetch: src=/home/support/.ssh/id_rsa.pub dest=/tmp/master_key flat=yes
+    - name: Create provision/release directories on master
+      file:
+        path: /pipedream/provision/release
+        state: directory
+        recurse: yes
+    - name: Copy Deb packages to master
+      copy: src="{{ item }}" dest=/home/support
+      with_fileglob:
+        - "/tmp/packages/*"
+    - name: Move pipedream and systems packages to provision/release directory
+      shell: mv /home/support/*pipedream*deb /pipedream/provision/release && mv /home/support/*systems*deb /pipedream/provision/release
+    - name: Install Conda and Deeploy packages on master
+      shell: dpkg -i /home/support/*conda*deb && dpkg -i /home/support/*deeploy*deb
+
+- hosts: workers
+  become: true
+  tasks:
+    - name: Create support user
+      user:
+        name: support
+        state: present
+        group: support
+        groups: "sudo"
+    - name: Create ssh directory on workers
+      file:
+        path: /home/support/.ssh
+        state: directory
+    - name: Create provision/release directories on workers
+      file:
+        path: /pipedream/provision/release
+        state: directory
+        recurse: yes
+    - name: Push generated key from master to workers (authorized_keys)
+      copy: src=/tmp/master_key dest=/home/support/.ssh/authorized_keys
+    - name: Copy Conda Deb package to workers
+      copy: src="{{ item }}" dest=/home/support
+      with_fileglob:
+        - "/tmp/packages/*conda*deb"
+    - name: Copy Pipedream package to workers
+      copy: src="{{ item }}" dest=/pipedream/provision/release
+      with_fileglob:
+        - "/tmp/packages//*pipedream*deb"
+    - name: Copy Systems package to workers
+      copy: src="{{ item }}" dest=/pipedream/provision/release
+      with_fileglob:
+        - "/tmp/packages/*systems*deb"
+    - name: Install Conda package on workers
+      shell: dpkg -i /home/support/*conda*deb
