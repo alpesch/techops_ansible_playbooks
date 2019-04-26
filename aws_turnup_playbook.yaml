@@ -26,7 +26,7 @@
         state: directory
         recurse: yes
     - name: Copy Deb packages to master
-      copy: src="{{ item }}" dest=/home/support
+      synchronize: src="{{ item }}" dest=/home/support
       with_fileglob:
         - "/tmp/packages/*"
     - name: Move pipedream and systems packages to provision/release directory
@@ -53,17 +53,17 @@
         state: directory
         recurse: yes
     - name: Push generated key from master to workers (authorized_keys)
-      copy: src=/tmp/master_key dest=/home/support/.ssh/authorized_keys
+      synchronize: src=/tmp/master_key dest=/home/support/.ssh/authorized_keys
     - name: Copy Conda Deb package to workers
-      copy: src="{{ item }}" dest=/home/support
+      synchronize: src="{{ item }}" dest=/home/support
       with_fileglob:
         - "/tmp/packages/*conda*deb"
     - name: Copy Pipedream package to workers
-      copy: src="{{ item }}" dest=/pipedream/provision/release
+      synchronize: src="{{ item }}" dest=/pipedream/provision/release
       with_fileglob:
         - "/tmp/packages//*pipedream*deb"
     - name: Copy Systems package to workers
-      copy: src="{{ item }}" dest=/pipedream/provision/release
+      synchronize: src="{{ item }}" dest=/pipedream/provision/release
       with_fileglob:
         - "/tmp/packages/*systems*deb"
     - name: Install Conda package on workers
