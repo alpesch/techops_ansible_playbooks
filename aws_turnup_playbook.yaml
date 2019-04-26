@@ -1,6 +1,8 @@
 ---
 
 # NOTE - Ansible does not handle the license.json or config.yaml files.
+# To use the hosts file in this repo (which can be modified for your deployment), follow the example below:
+# ansible-playbook -i ./hosts aws_turnup_playbook.yaml
 # install_system.sh will need to be run manually for this reason.
 
 - hosts: master
