@@ -35,7 +35,7 @@ There are 3 requirements for running Ansible on remote nodes:
 * Run the deployment_helper.sh script. This places the correct packages in /tmp/packages,
   where ansible expects them to be.
 ## Homebrew & sshpass
-Homebrew is used to install a needed package for SSH tasks used by Ansible called sshpass.
+[Homebrew](https://brew.sh/) is used to install a needed package for SSH tasks used by Ansible called [sshpass](https://linux.die.net/man/1/sshpass).
 * `$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 * Install the SSH package needed by Ansible. Because Brew doesn't directly support this library,
   we have to install it from a git repo using brew.
