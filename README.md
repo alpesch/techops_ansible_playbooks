@@ -1,5 +1,16 @@
 This repo contains Ansible playbooks. Currently, this focuses on deployment.
 
+[How to install and setup Ansible](#how-to-install-and-setup-ansible)
+* [Ansible](#ansible)
+* [Homebrew](#homebrew)
+* [aws turnup playbook](#aws_turnup_playbookyaml)
+
+[Working with and running an Ansible Playbook](#working-with-and-running-an-ansible-playbook)
+* [Ansible Config file](#ansible-config-file)
+* [Hosts file](#hosts-file)
+* [Running Ansible](#running-ansible)
+* [Example](#example)
+
 # How to install and setup Ansible
 ## Ansible
 * `sudo pip install ansible`
