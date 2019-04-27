@@ -4,7 +4,6 @@ This repo contains Ansible playbooks. Currently, this focuses on deployment.
   * [Ansible](#ansible)
   * [Homebrew](#homebrew)
   * [aws turnup playbook](#aws_turnup_playbookyaml)
-
 * [Working with and running an Ansible Playbook](#working-with-and-running-an-ansible-playbook)
   * [Ansible Config file](#ansible-config-file)
   * [Hosts file](#hosts-file)
@@ -25,24 +24,6 @@ Homebrew is used to install a needed package for SSH tasks used by Ansible.
 * Install the SSH package needed by Ansible. Because Brew doesn't directly support this library,
   we have to install it from a git repo using brew.
   * `brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb`
-
-# aws_turnup_playbook.yaml
-This playbook will perform the following tasks:
-* Master node
-  * Setup support user
-  * Add support user to sudoers
-  * generate SSH keypair
-  * Create /pipedream/provision/release folders
-  * Copy down .deb packages and move them to the right place:
-    * Conda (Ansible installs this package), Deeploy, Pipedream, Systems
-* Worker node(s)
-  * Setup support user
-  * Add support user to sudoers
-  * Create .ssh folder under /home/support
-  * Copy kepair from master to worker node(s)
-  * Create /pipedream/provision/release folders
-  * Copy down .deb packages and move them to the right place:
-    * Conda (Ansible installs this package), Deeploy, Pipedream, Systems
 
 # Working with and running an Ansible playbook
 ## Ansible Config file
@@ -69,7 +50,23 @@ This playbook will perform the following tasks:
   * Red - Ansible may not have completed all or parts of a task successfully.
   * Yellow - Informational text, usually indicating something on the target system has been changed by Ansible.
   * Green - Ansible completed all or part of a task successfully. Yay!
-  
+## aws_turnup_playbook.yaml
+This playbook will perform the following tasks:
+* Master node
+  * Setup support user
+  * Add support user to sudoers
+  * generate SSH keypair
+  * Create /pipedream/provision/release folders
+  * Copy down .deb packages and move them to the right place:
+    * Conda (Ansible installs this package), Deeploy, Pipedream, Systems
+* Worker node(s)
+  * Setup support user
+  * Add support user to sudoers
+  * Create .ssh folder under /home/support
+  * Copy kepair from master to worker node(s)
+  * Create /pipedream/provision/release folders
+  * Copy down .deb packages and move them to the right place:
+    * Conda (Ansible installs this package), Deeploy, Pipedream, Systems
 ## Example
 `$ ansible-playbook aws_turnup_playbook.yaml`
 * TL;DR of how Ansible uses the files discussed above:
