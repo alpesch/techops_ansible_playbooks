@@ -60,9 +60,9 @@ This playbook will perform the following tasks:
 * Ansible can be run with one task in mind, or many tasks. Single tasks can
   be accomplished on the commandline. 
 * For multi-tasked jobs, [playbooks can be used](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html)
-* To use a playbook, the syntax is `ansible-playbook <playbook filename>`
+* To use a playbook, the syntax is `$ ansible-playbook <playbook filename>`
 ## Example
-`ansible-playbook aws_turnup_playbook.yaml`
+`$ ansible-playbook aws_turnup_playbook.yaml`
 * TL;DR of how Ansible uses the files discussed above:
   * Reads in the [playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) - aws_turnup_playbook.yaml
   * Configures itself according to [/etc/ansible/ansible.cfg](https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html#)
