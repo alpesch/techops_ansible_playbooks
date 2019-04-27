@@ -3,7 +3,7 @@ This repo contains Ansible playbooks. Currently, this focuses on deployment.
 * [Requirements on remote nodes](#requirements-on-remote-nodes)
 * [How to install and setup Ansible](#how-to-install-and-setup-ansible)
   * [Ansible](#ansible)
-  * [Homebrew](#homebrew--sshpass)
+  * [Homebrew & sshpass](#homebrew--sshpass)
 * [Working with and running an Ansible Playbook](#working-with-and-running-an-ansible-playbook)
   * [Ansible Config file](#ansible-config-file)
   * [Hosts file](#hosts-file)
