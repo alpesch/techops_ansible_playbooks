@@ -61,6 +61,12 @@ This playbook will perform the following tasks:
   be accomplished on the commandline. 
 * For multi-tasked jobs, [playbooks can be used](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html)
 * To use a playbook, the syntax is `$ ansible-playbook <playbook filename>`
+* Want to see more output? Use the `-v` flag.
+* In general, the colored output represents the following:
+  * Red - Ansible may not have completed all or parts of a task successfully.
+  * Yellow - Informational text, usually indicating something on the target system has been changed by Ansible.
+  * Green - Ansible completed all or part of a task successfully. Yay!
+  
 ## Example
 `$ ansible-playbook aws_turnup_playbook.yaml`
 * TL;DR of how Ansible uses the files discussed above:
