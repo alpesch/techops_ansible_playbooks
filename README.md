@@ -1,5 +1,6 @@
 This repo contains Ansible playbooks. Currently, this focuses on deployment.
 
+* [Requirements on remote nodes](#requirements-on-remote-nodes)
 * [How to install and setup Ansible](#how-to-install-and-setup-ansible)
   * [Ansible](#ansible)
   * [Homebrew](#homebrew)
@@ -10,21 +11,27 @@ This repo contains Ansible playbooks. Currently, this focuses on deployment.
   * [aws turnup playbook](#aws_turnup_playbookyaml)
   * [Example](#example)
 
+# Requirements on remote nodes
+There are 2 requirements for running Ansible on remote nodes:
+* The nodes must be reachable via SSH
+* The nodes must have Python installed
+
 # How to install and setup Ansible
 ## Ansible
-* `sudo pip install ansible`
-* `git clone git@github.com:alpesch/techops_ansible_playbooks.git`
-* Modify hosts file according to your deployment (master node under 
+* `$ sudo pip install ansible`
+  * NOTE - If the remote nodes only have Python 3 installed, use `$ sudo pip3 install ansible`
+* `$ git clone git@github.com:alpesch/techops_ansible_playbooks.git`
+* Modify hosts file with the public IP addresses in AWS according to your deployment (master node IP(s) under 
 **[master]**, 
-  worker nodes under **[workers]**)
+  worker node IP(s) under **[workers]**)
 * Run the deployment_helper.sh script. This places the correct packages in /tmp/packages,
   where ansible expects them to be.
 ## Homebrew
 Homebrew is used to install a needed package for SSH tasks used by Ansible.
-* `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+* `$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 * Install the SSH package needed by Ansible. Because Brew doesn't directly support this library,
   we have to install it from a git repo using brew.
-  * `brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb`
+  * `$ brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb`
 
 # Working with and running an Ansible playbook
 ## Ansible Config file
