@@ -1,6 +1,6 @@
 [master]
-10.0.10.30 ansible_user=ubuntu
+<master ip(s)> ansible_user=ubuntu
 
 [workers]
-10.0.10.27 ansible_user=ubuntu
-10.0.10.28 ansible_user=ubuntu
+<worker ip(s)> ansible_user=ubuntu
+
