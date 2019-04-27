@@ -53,6 +53,7 @@ There are 3 requirements for running Ansible on remote nodes:
 ## Hosts file
 * This file is not the same as /etc/hosts. It lives in /etc/ansible/hosts
 * [Additional configuration settings](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) can be made using this file.
+* Currently, we don't leverage any additional settings here. We simply use the Ansible hosts file to tell Ansible what nodes to run on.
 ## Running Ansible
 * Ansible can be run with one task in mind, or many tasks. Single tasks can
   be accomplished on the commandline. 
