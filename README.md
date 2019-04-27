@@ -12,9 +12,15 @@ This repo contains Ansible playbooks. Currently, this focuses on deployment.
   * [Example](#example)
 
 # Requirements on remote nodes
-There are 2 requirements for running Ansible on remote nodes:
+There are 3 requirements for running Ansible on remote nodes:
 * The nodes must be reachable via SSH
 * The nodes must have Python installed
+* Because some tasks that Ansible completes require sudo privileges, we want to allow the ubuntu\
+  user to be allowed to run sudo without prompting for a password. To do this, log into each\
+  remote node and perform the following 3 steps:
+  * Run `$ sudo visudo`
+  * Add the following line to the bottom of the file: `ubuntu ALL=(ALL) NOPASSWD: ALL`
+  * Save and exit
 
 # How to install and setup Ansible
 ## Ansible
