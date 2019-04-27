@@ -19,9 +19,11 @@ There are 2 requirements for running Ansible on remote nodes:
 # How to install and setup Ansible
 ## Ansible
 * `$ sudo pip install ansible`
-  * NOTE - If the remote nodes only have Python 3 installed, use `$ sudo pip3 install ansible`
+  * NOTE - If the remote nodes only have Python 3 installed, use `$ sudo pip3 install ansible`\
+    Don't have pip3? It can be installed with Homebrew (next session below) with `$ brew install pip3`
 * `$ git clone git@github.com:alpesch/techops_ansible_playbooks.git`
-* Modify hosts file with the public IP addresses in AWS according to your deployment (master node IP(s) under 
+* Modify hosts file with the public IP addresses in AWS according to your deployment (master node IP(s) under
+  * NOTE - These should be the IP addresses that are reachable from your Mac via SSH.
 **[master]**, 
   worker node IP(s) under **[workers]**)
 * Run the deployment_helper.sh script. This places the correct packages in /tmp/packages,
