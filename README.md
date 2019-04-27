@@ -63,7 +63,8 @@ This playbook will perform the following tasks:
 * To use a playbook, the syntax is `$ ansible-playbook <playbook filename>`
 * Want to see more output? Use the `-v` flag.
 * Be sure to add your AWS private key to your ssh-agent before running Ansible.
-  * Example - `ssh-add ~/.ssh/id_rsa`
+  * Example - `$ ssh-add ~/.ssh/id_rsa`
+  * Not sure if you've already added it? You can check what keys your agent is aware of with `$ ssh-add -L`
 * In general, the colored output represents the following:
   * Red - Ansible may not have completed all or parts of a task successfully.
   * Yellow - Informational text, usually indicating something on the target system has been changed by Ansible.
