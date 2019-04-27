@@ -54,6 +54,7 @@ This playbook will perform the following tasks:
 `ansible-playbook aws_turnup_playbook.yaml`
 * TL;DR of how Ansible uses the files discussed above:
   * Reads in the [playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) - aws_turnup_playbook.yaml
-  * Executes against hosts found in [/etc/ansible/hosts](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
   * Configures itself according to [/etc/ansible/ansible.cfg](https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html#)
+  * Executes against hosts found in [/etc/ansible/hosts](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
   
