@@ -1,6 +1,12 @@
 [master]
-<master ip(s)> ansible_user=ubuntu
+<master ip 1>
+<master ip 2>
+...
+<last master ip>
 
 [workers]
-<worker ip(s)> ansible_user=ubuntu
+<worker ip 1>
+<worker ip 2>
+...
+<last worker ip>
 
